@@ -4,18 +4,11 @@ import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { ArrowDown, Play } from 'lucide-react'
+import { ChevronDown, Play } from 'lucide-react'
 
 const Hero = () => {
-    const scrollToBooking = () => {
-        const bookingSection = document.getElementById('booking')
-        if (bookingSection) {
-            bookingSection.scrollIntoView({ behavior: 'smooth' })
-        }
-    }
-
     return (
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative flex flex-col items-center justify-center min-h-[calc(100dvh-4rem)] text-center px-4 sm:px-6 lg:px-8 overflow-hidden">
             {/* Background with fallback */}
             <div className="absolute inset-0 z-0">
                 {/* Static background for now - can be replaced with video later */}
@@ -30,7 +23,7 @@ const Hero = () => {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <div className="relative z-10 text-center text-white max-w-4xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -46,7 +39,7 @@ const Hero = () => {
                         Transform your performance.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                         <Button asChild size="lg" className="text-lg px-8 py-3">
                             <Link href="/book">Book Free Assessment</Link>
                         </Button>
@@ -58,25 +51,19 @@ const Hero = () => {
                             </Link>
                         </Button>
                     </div>
-
-                    {/* Scroll Indicator */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.5, duration: 0.5 }}
-                        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-                    >
-                        <button
-                            onClick={scrollToBooking}
-                            className="flex flex-col items-center text-white/80 hover:text-white transition-colors"
-                            aria-label="Scroll to learn more"
-                        >
-                            <span className="text-sm mb-3">Learn More</span>
-                            <ArrowDown className="h-5 w-5 animate-bounce" />
-                        </button>
-                    </motion.div>
                 </motion.div>
             </div>
+
+            {/* Scroll Indicator */}
+            <a
+                href="#why"
+                className="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center gap-1 group"
+            >
+                <span className="text-sm tracking-wide opacity-70 group-hover:opacity-100 transition-opacity text-white">
+                    Learn More
+                </span>
+                <ChevronDown className="w-5 h-5 animate-bounce-slow text-white" />
+            </a>
 
             {/* Stats Overlay */}
             <motion.div

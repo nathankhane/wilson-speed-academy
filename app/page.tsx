@@ -8,7 +8,7 @@ export default function HomePage() {
             <Hero />
 
             {/* Why Train With Us Section */}
-            <section className="py-16 bg-muted/50">
+            <section id="why" className="py-16 bg-muted/50">
                 <div className="container mx-auto max-w-screen-xl px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold mb-4">Why Train With Wilson Speed Academy?</h2>
