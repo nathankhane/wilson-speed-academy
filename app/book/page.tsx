@@ -16,7 +16,7 @@ export default function BookPage() {
             type: 'In-Person',
             price: 'Free',
             description: 'Complimentary movement analysis and training plan consultation',
-            calendlyUrl: 'https://calendly.com/tariq-wsa/free-assessment'
+            calendlyUrl: 'https://calendly.com/wilsonspeedacademy'
         },
         {
             id: 'elite-training',
@@ -25,7 +25,7 @@ export default function BookPage() {
             type: 'In-Person',
             price: '$150',
             description: 'One-on-one personalized speed training with Tyriq Wilson',
-            calendlyUrl: 'https://calendly.com/tyriq-wsa/elite-training'
+            calendlyUrl: 'https://calendly.com/wilsonspeedacademy'
         },
         {
             id: 'remote-consultation',
@@ -34,7 +34,7 @@ export default function BookPage() {
             type: 'Virtual',
             price: '$75',
             description: 'Virtual coaching session and custom training plan creation',
-            calendlyUrl: 'https://calendly.com/tariq-wsa/remote-consultation'
+            calendlyUrl: 'https://calendly.com/wilsonspeedacademy'
         }
     ]
 
@@ -173,13 +173,13 @@ export default function BookPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button variant="outline" asChild>
-                            <a href="mailto:info@wilsonspeedacademy.com">
+                            <a href="mailto:wilsonspeedacademy@gmail.com">
                                 Email Us
                             </a>
                         </Button>
                         <Button variant="outline" asChild>
-                            <a href="tel:5045555733">
-                                Call (504) 555-SPEED
+                            <a href="tel:5044309308">
+                                Call (504)-430-9308
                             </a>
                         </Button>
                     </div>

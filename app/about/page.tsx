@@ -61,7 +61,7 @@ export default function AboutPage() {
                             </h1>
                             <p className="text-xl text-muted-foreground mb-6">
                                 Elite track athlete, certified coach, and founder of Wilson Speed Academy.
-                                Dedicated to helping athletes unlock their maximum speed potential.
+                                My mission is to help athletes discover the best version of themselves mentally and physically to achieve maximum success in their sport and in life.
                             </p>
                             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                                 <div className="flex items-center space-x-2">
@@ -75,17 +75,15 @@ export default function AboutPage() {
                             </div>
                         </div>
                         <div className="relative">
-                            {/* Placeholder for professional headshot */}
+                            {/* Professional headshot */}
                             <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
-                                <div className="w-full h-full rounded-lg shadow-xl bg-gradient-to-b from-wsa-blue/20 to-wsa-black/20 border-2 border-wsa-blue/30 flex items-center justify-center">
-                                    <div className="text-center text-muted-foreground">
-                                        <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-wsa-blue/20 flex items-center justify-center">
-                                            <Trophy className="w-10 h-10 text-wsa-blue" />
-                                        </div>
-                                        <p className="text-sm font-medium">Professional Photo</p>
-                                        <p className="text-xs">Coming Soon</p>
-                                    </div>
-                                </div>
+                                <Image
+                                    src="/images/Tyriq_Headshot.jpeg"
+                                    alt="Tyriq Wilson - Founder of Wilson Speed Academy"
+                                    fill
+                                    className="object-cover rounded-lg shadow-xl"
+                                    priority
+                                />
                             </div>
                         </div>
                     </div>
@@ -110,8 +108,10 @@ export default function AboutPage() {
                             </p>
                             <p className="text-lg leading-relaxed mb-6">
                                 Wilson Speed Academy was born from my desire to give back to the community that supported
-                                my journey. Every athlete has untapped potential, and I&apos;m here to help them discover it
-                                through proven training methods, personalized coaching, and the mindset needed to excel.
+                                my journey. My mission is to help athletes discover the best version of themselves mentally
+                                and physically to achieve maximum success in their sport and in life. Every athlete has
+                                untapped potential, and I&apos;m here to help them discover it through proven training methods,
+                                personalized coaching, and the mindset needed to excel.
                             </p>
                         </div>
                     </div>

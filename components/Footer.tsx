@@ -44,18 +44,18 @@ const Footer = () => {
                         <div className="space-y-2">
                             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                                 <Mail className="h-4 w-4" />
-                                <span>info@wilsonspeedacademy.com</span>
+                                <span>wilsonspeedacademy@gmail.com</span>
                             </div>
                             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                                 <Phone className="h-4 w-4" />
-                                <span>(504) 555-SPEED</span>
+                                <span>(504)-430-9308</span>
                             </div>
                         </div>
 
                         {/* Social Links */}
                         <div className="flex space-x-4">
                             <Link
-                                href="https://instagram.com/wilsonspeedacademy"
+                                href="https://www.instagram.com/wilsonspeedacademy"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-muted-foreground hover:text-wsa-blue transition-colors"

@@ -150,7 +150,7 @@ export default function ContactPage() {
                                         <Phone className="h-6 w-6 text-wsa-blue mt-1" />
                                         <div>
                                             <h3 className="font-semibold mb-1">Phone</h3>
-                                            <p className="text-muted-foreground">(504) 555-SPEED</p>
+                                            <p className="text-muted-foreground">(504)-430-9308</p>
                                         </div>
                                     </div>
 
@@ -158,7 +158,7 @@ export default function ContactPage() {
                                         <Mail className="h-6 w-6 text-wsa-blue mt-1" />
                                         <div>
                                             <h3 className="font-semibold mb-1">Email</h3>
-                                            <p className="text-muted-foreground">info@wilsonspeedacademy.com</p>
+                                            <p className="text-muted-foreground">wilsonspeedacademy@gmail.com</p>
                                         </div>
                                     </div>
 

@@ -62,7 +62,7 @@ export default function ResultsPage() {
             before: "22.15s",
             after: "21.95s",
             timeframe: "14 weeks",
-            quote: "Consistently improved every week with Tariq's methods."
+            quote: "Consistently improved every week with Tyriq's methods."
         },
         {
             id: 6,

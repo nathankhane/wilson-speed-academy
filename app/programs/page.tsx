@@ -22,7 +22,7 @@ export default function ProgramsPage() {
                 "Performance tracking",
                 "Access to professional equipment"
             ],
-            calendlyUrl: "https://calendly.com/tyriq-wsa/elite-training",
+            calendlyUrl: "https://calendly.com/wilsonspeedacademy",
             popular: true
         },
         {

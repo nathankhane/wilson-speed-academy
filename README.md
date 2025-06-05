@@ -1,6 +1,6 @@
 # Wilson Speed Academy
 
-Elite speed training for track athletes in New Orleans, LA. Transform your athletic performance with personalized coaching by Tariq Wilson, St. Edwards University track athlete.
+Elite speed training for track athletes in New Orleans, LA. Transform your athletic performance with personalized coaching by Tyriq Wilson, St. Edwards University track athlete.
 
 ## 🚀 Quick Start
 
@@ -28,7 +28,7 @@ wilson-speed-academy/
 │   ├── layout.tsx         # Root layout with theme provider
 │   ├── page.tsx           # Homepage with hero, stats, testimonials
 │   ├── programs/          # Training programs page
-│   ├── about/             # About Tariq Wilson
+│   ├── about/             # About Tyriq Wilson
 │   ├── book/              # Booking system with Calendly
 │   ├── results/           # Client results showcase
 │   ├── resources/         # Blog/resources (MDX powered)
@@ -91,7 +91,7 @@ Create new MDX files in `/content/posts/`:
 title: "Your Post Title"
 date: "2024-01-15"
 description: "Post description for SEO"
-author: "Tariq Wilson"
+author: "Tyriq Wilson"
 tags: ["speed training", "tips"]
 ---
 
@@ -154,36 +154,6 @@ pnpm format
 
 1. **Homepage** (`/`) - Hero video, features, stats, testimonials
 2. **Programs** (`/programs`) - Training program options with pricing
-3. **About** (`/about`) - Tariq's background and certifications
+3. **About** (`/about`) - Tyriq's background and certifications
 4. **Book** (`/book`) - Session booking with Calendly integration
-5. **Results** (`/results`) - Client success stories and improvements
-6. **Resources** (`/resources`) - Training tips and blog posts
-7. **Contact** (`/contact`) - Contact form and location map
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Animations**: Framer Motion
-- **Slider**: Keen Slider
-- **Content**: MDX
-- **Theme**: next-themes
-- **Forms**: React Hook Form + Zod
-- **Deployment**: Vercel
-
-## 📞 Support
-
-For technical support or questions about the website:
-- Email: dev@wilsonspeedacademy.com
-- Documentation: [Technical Docs](docs/)
-
-For training inquiries:
-- Email: info@wilsonspeedacademy.com  
-- Phone: (504) 555-SPEED
-- Location: New Orleans, LA
-
----
-
-Built with ❤️ for Wilson Speed Academy 
+5. **Results** (`
