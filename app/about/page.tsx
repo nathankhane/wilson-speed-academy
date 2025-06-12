@@ -2,6 +2,18 @@ import React from 'react'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Trophy, GraduationCap, Target, Heart } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'About Tyriq Wilson | Wilson Speed Academy',
+    description: 'Meet Tyriq Wilson, founder of Wilson Speed Academy and St. Edwards University track athlete. Learn about his journey and coaching philosophy.',
+    keywords: 'Tyriq Wilson, speed coach, track athlete, St Edwards University, athletic training',
+    openGraph: {
+        title: 'About Tyriq Wilson | Wilson Speed Academy',
+        description: 'Meet Tyriq Wilson, founder of Wilson Speed Academy and St. Edwards University track athlete.',
+        type: 'profile',
+    },
+}
 
 export default function AboutPage() {
     const achievements = [
@@ -35,9 +47,9 @@ export default function AboutPage() {
     ]
 
     return (
-        <div className="min-h-screen pt-16">
+        <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="py-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5">
+            <section className="pt-16 pb-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5">
                 <div className="container mx-auto max-w-screen-xl px-4">
                     <div className="text-center mb-16">
                         <Image

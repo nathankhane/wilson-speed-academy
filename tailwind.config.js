@@ -51,16 +51,17 @@ module.exports = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
-                // Wilson Speed Academy brand colors
+                // Wilson Speed Academy brand colors - simplified
                 wsa: {
                     black: '#151515',
                     blue: '#5DA5C8',
+                    'light-blue': '#87CEEB',
                     white: '#FEFEFE',
                 }
             },
             fontFamily: {
-                'headline': ['Montserrat', 'sans-serif'],
-                'body': ['Open Sans', 'sans-serif'],
+                'headline': ['var(--font-headline)', 'Montserrat', 'sans-serif'],
+                'body': ['var(--font-body)', 'Open Sans', 'sans-serif'],
             },
             letterSpacing: {
                 'headline': '0.05em',
@@ -83,11 +84,20 @@ module.exports = {
                     '0%, 100%': { transform: 'translateY(-4px)' },
                     '50%': { transform: 'translateY(4px)' },
                 },
+                'fade-in': {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
             },
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
                 'bounce-slow': 'bounce-slow 2s infinite',
+                'fade-in': 'fade-in 0.6s ease-out forwards',
+            },
+            spacing: {
+                '18': '4.5rem',
+                '88': '22rem',
             },
         },
     },

@@ -4,6 +4,18 @@ import Image from 'next/image'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CheckCircle, Video, Trophy } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Training Programs | Wilson Speed Academy',
+    description: 'Discover elite speed training programs at Wilson Speed Academy. Personal training, remote coaching, and combine prep programs available.',
+    keywords: 'speed training programs, personal training, remote coaching, combine prep, athletic training',
+    openGraph: {
+        title: 'Training Programs | Wilson Speed Academy',
+        description: 'Discover elite speed training programs designed to unlock your athletic potential.',
+        type: 'website',
+    },
+}
 
 export default function ProgramsPage() {
     const programs = [
@@ -22,7 +34,7 @@ export default function ProgramsPage() {
                 "Performance tracking",
                 "Access to professional equipment"
             ],
-            calendlyUrl: "https://calendly.com/wilsonspeedacademy",
+            calendlyUrl: "https://calendly.com/wilsonspeedacademy/consultation",
             popular: true
         },
         {
@@ -62,9 +74,9 @@ export default function ProgramsPage() {
     ]
 
     return (
-        <div className="min-h-screen pt-16">
+        <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="py-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5">
+            <section className="pt-16 pb-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5">
                 <div className="container mx-auto max-w-screen-xl px-4">
                     <div className="text-center mb-12">
                         <Image

@@ -5,6 +5,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MobileStickyCTA from '@/components/MobileStickyCTA'
+import ErrorBoundary from '@/components/ErrorBoundary'
+import StructuredData, { businessStructuredData } from '@/components/StructuredData'
 
 const montserrat = Montserrat({
     subsets: ['latin'],
@@ -71,6 +73,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <StructuredData data={businessStructuredData} />
+            </head>
             <body className={`${montserrat.variable} ${openSans.variable} font-body antialiased`}>
                 <ThemeProvider
                     attribute="class"
@@ -78,14 +83,16 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <div className="flex min-h-screen flex-col">
-                        <Header />
-                        <main className="flex-1">
-                            {children}
-                        </main>
-                        <Footer />
-                    </div>
-                    <MobileStickyCTA />
+                    <ErrorBoundary>
+                        <div className="flex min-h-screen flex-col">
+                            <Header />
+                            <main className="flex-1">
+                                {children}
+                            </main>
+                            <Footer />
+                        </div>
+                        <MobileStickyCTA />
+                    </ErrorBoundary>
                 </ThemeProvider>
             </body>
         </html>
