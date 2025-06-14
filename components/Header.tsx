@@ -8,10 +8,12 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { useTheme } from 'next-themes'
+import { createPortal } from 'react-dom'
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
+    const [portalContainer, setPortalContainer] = useState<Element | null>(null)
     const { resolvedTheme } = useTheme()
 
     const navigationLinks = [
@@ -23,6 +25,7 @@ const Header = () => {
     // Ensure component is mounted before accessing theme
     useEffect(() => {
         setMounted(true)
+        setPortalContainer(document.body)
     }, [])
 
     // Determine which logo to use based on theme, with proper fallback
@@ -102,13 +105,14 @@ const Header = () => {
 
             {/* Mobile Navigation */}
             <AnimatePresence>
-                {mobileMenuOpen && (
+                {mobileMenuOpen && mounted && portalContainer && createPortal(
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        className="fixed inset-0 z-[9999] bg-red-500 flex flex-col items-center justify-center space-y-8 lg:hidden"
+                        className="fixed inset-0 z-[9999] bg-white dark:bg-background flex flex-col items-center justify-center space-y-8 lg:hidden"
+                        style={{ background: 'rgba(255,255,255,0.98)' }}
                     >
                         <nav className="flex flex-col space-y-6 w-full max-w-xs mx-auto text-center">
                             {navigationLinks.map((link) => (
@@ -136,7 +140,8 @@ const Header = () => {
                         >
                             <X size={32} />
                         </Button>
-                    </motion.div>
+                    </motion.div>,
+                    portalContainer
                 )}
             </AnimatePresence>
         </header>
