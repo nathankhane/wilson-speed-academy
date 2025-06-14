@@ -47,7 +47,7 @@ const Header = () => {
                                     alt="Wilson Speed Academy"
                                     width={90}
                                     height={90}
-                                    className="h-12 w-12 sm:h-20 sm:w-20 transition-all duration-300 group-hover:drop-shadow-lg"
+                                    className="h-12 sm:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
                                     priority
                                     sizes="(max-width: 640px) 48px, 80px"
                                 />
