@@ -134,6 +134,16 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+
+    .animate-slide-in {
+        animation: slide-in 300ms both;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(-100%);
+        }
+    }
 }
 
 /* Custom animations for stats counter */

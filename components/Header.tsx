@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -9,136 +9,89 @@ import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { useTheme } from 'next-themes'
 
+const Logo = () => (
+    <Link href="/">
+        <Image
+            src="/images/WSA_logo_white.png"
+            alt="Wilson Speed Academy"
+            width={90}
+            height={90}
+            className="h-12 sm:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
+            priority
+            sizes="(max-width: 640px) 48px, 80px"
+        />
+    </Link>
+)
+
+const NavLinks = ({ onClick }: { onClick?: () => void }) => (
+    <>
+        <Link href="/" onClick={onClick}>Home</Link>
+        <Link href="/programs" onClick={onClick}>Programs</Link>
+        <Link href="/about" onClick={onClick}>About</Link>
+        <Link href="/#book" onClick={onClick} className="font-semibold">
+            Book Session
+        </Link>
+    </>
+)
+
 const Header = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const [mounted, setMounted] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const { resolvedTheme } = useTheme()
 
-    const navigationLinks = [
-        { href: '/', label: 'Home' },
-        { href: '/programs', label: 'Programs' },
-        { href: '/about', label: 'About' },
-    ]
-
-    // Ensure component is mounted before accessing theme
+    // lock body scroll when drawer is open
     useEffect(() => {
-        setMounted(true)
+        document.body.classList.toggle("overflow-hidden", isOpen)
+        return () => document.body.classList.remove("overflow-hidden")
+    }, [isOpen])
+
+    // close on ⎋
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsOpen(false)
+        window.addEventListener("keydown", onKey)
+        return () => window.removeEventListener("keydown", onKey)
     }, [])
 
-    // Determine which logo to use based on theme, with proper fallback
-    const logoSrc = mounted && resolvedTheme === 'dark'
-        ? '/images/WSA_logo_white.png'
-        : '/images/WSA logo2.png'
-
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-md">
-            <div className="container mx-auto max-w-screen-2xl px-4 sm:px-6 py-4 sm:py-6">
-                <div className="grid grid-cols-3 items-center h-16 sm:h-20">
-                    {/* Left: Logo */}
-                    <div className="flex justify-start">
-                        <Link href="/" className="flex items-center group">
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <Image
-                                    src={logoSrc}
-                                    alt="Wilson Speed Academy"
-                                    width={90}
-                                    height={90}
-                                    className="h-12 sm:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
-                                    priority
-                                    sizes="(max-width: 640px) 48px, 80px"
-                                />
-                            </motion.div>
-                        </Link>
-                    </div>
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-background shadow">
+            {/* desktop nav  */}
+            <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
+                <Logo />
 
-                    {/* Center: Navigation */}
-                    <nav className="hidden lg:flex items-center justify-center space-x-8">
-                        {navigationLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className="text-base font-medium transition-all duration-300 hover:text-wsa-blue hover:scale-105 relative group"
-                            >
-                                {link.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-wsa-blue transition-all duration-300 group-hover:w-full"></span>
-                            </Link>
-                        ))}
-                    </nav>
+                {/* hamburger */}
+                <button
+                    className="md:hidden text-2xl p-2"
+                    onClick={() => setIsOpen(true)}
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
 
-                    {/* Right: CTA and Theme Toggle */}
-                    <div className="flex items-center justify-end space-x-4">
-                        <div className="hidden lg:flex items-center space-x-4">
-                            <ThemeToggle />
-                            <motion.div
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <Button asChild size="lg" className="transition-all duration-300 hover:shadow-lg">
-                                    <Link href="/book">Book Session</Link>
-                                </Button>
-                            </motion.div>
-                        </div>
-
-                        {/* Mobile Menu Button */}
-                        <div className="flex items-center space-x-2 lg:hidden">
-                            <ThemeToggle />
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                aria-label="Toggle menu"
-                                className="transition-all duration-300 hover:scale-110 h-12 w-12"
-                            >
-                                {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                            </Button>
-                        </div>
-                    </div>
-                </div>
+                {/* desktop links */}
+                <nav className="hidden md:flex gap-6">
+                    <NavLinks />
+                </nav>
             </div>
 
-            {/* Mobile Navigation */}
-            <AnimatePresence>
-                {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        className="fixed inset-0 z-[9999] bg-white/80 dark:bg-background/80 backdrop-blur-md flex flex-col items-center justify-center space-y-8 lg:hidden"
+            {/* ----- MOBILE DRAWER ----- */}
+            {isOpen && (
+                <div
+                    role="dialog"
+                    aria-modal="true"
+                    className="fixed inset-0 z-[60] bg-white dark:bg-background flex flex-col overflow-y-auto md:hidden animate-slide-in"
+                >
+                    <button
+                        onClick={() => setIsOpen(false)}
+                        aria-label="Close menu"
+                        className="absolute top-4 right-4 text-2xl p-2"
                     >
-                        <nav className="flex flex-col space-y-6 w-full max-w-xs mx-auto text-center">
-                            {navigationLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className="text-2xl font-semibold py-4 rounded-lg transition-colors hover:text-wsa-blue focus:bg-muted"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                            <Button asChild className="w-full py-4 text-xl rounded-xl mt-4">
-                                <Link href="/book" onClick={() => setMobileMenuOpen(false)}>
-                                    Book Session
-                                </Link>
-                            </Button>
-                        </nav>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => setMobileMenuOpen(false)}
-                            aria-label="Close menu"
-                            className="absolute top-6 right-6 h-14 w-14 bg-wsa-blue/20 text-foreground"
-                        >
-                            <X size={36} />
-                        </Button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        ✕
+                    </button>
+
+                    <nav className="mt-20 flex flex-col items-center gap-8 text-xl">
+                        <NavLinks onClick={() => setIsOpen(false)} />
+                    </nav>
+                </div>
+            )}
         </header>
     )
 }
