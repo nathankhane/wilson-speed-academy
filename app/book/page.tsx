@@ -64,13 +64,13 @@ export default function BookPage() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="pt-16 pb-16">
+            <section className="pt-24 pb-12">
                 <div className="container mx-auto max-w-screen-xl px-4">
                     <div className="text-center">
                         <h1 className="text-4xl md:text-6xl font-headline font-bold mb-6">
                             Book Your Session
                         </h1>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
                             Select a convenient time for your training consultation with Tyriq Wilson.
                             All sessions include personalized coaching and performance analysis.
                         </p>
@@ -79,8 +79,8 @@ export default function BookPage() {
             </section>
 
             {/* Calendly Widget Section */}
-            <section className="py-16">
-                <div className="container mx-auto max-w-screen-xl px-4">
+            <section className="py-12 pb-32">
+                <div className="container mx-auto max-w-2xl px-4 flex flex-col items-center justify-center">
                     {isLoading && (
                         <div className="flex items-center justify-center h-96">
                             <div className="text-center">
@@ -89,11 +89,10 @@ export default function BookPage() {
                             </div>
                         </div>
                     )}
-
                     <div
-                        className={`calendly-inline-widget ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+                        className={`calendly-inline-widget ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300 rounded-2xl shadow-2xl bg-white w-full`}
                         data-url="https://calendly.com/wilsonspeedacademy/consultation"
-                        style={{ minWidth: '320px', height: '700px' }}
+                        style={{ minWidth: '320px', width: '100%', maxWidth: '700px', height: '700px', margin: '0 auto', overflow: 'hidden' }}
                         aria-label="Select a time for your training consultation"
                     />
                 </div>

@@ -31,9 +31,9 @@ const Header = () => {
         : '/images/WSA logo2.png'
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto max-w-screen-2xl px-6 py-6">
-                <div className="grid grid-cols-3 items-center h-20">
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-md">
+            <div className="container mx-auto max-w-screen-2xl px-4 sm:px-6 py-4 sm:py-6">
+                <div className="grid grid-cols-3 items-center h-16 sm:h-20">
                     {/* Left: Logo */}
                     <div className="flex justify-start">
                         <Link href="/" className="flex items-center group">
@@ -45,9 +45,9 @@ const Header = () => {
                                 <Image
                                     src={logoSrc}
                                     alt="Wilson Speed Academy"
-                                    width={90}
-                                    height={90}
-                                    className="h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
+                                    width={60}
+                                    height={60}
+                                    className="h-12 w-auto sm:h-20 transition-all duration-300 group-hover:drop-shadow-lg"
                                     priority
                                 />
                             </motion.div>
@@ -90,9 +90,9 @@ const Header = () => {
                                 size="icon"
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 aria-label="Toggle menu"
-                                className="transition-all duration-300 hover:scale-110"
+                                className="transition-all duration-300 hover:scale-110 h-12 w-12"
                             >
-                                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                                {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                             </Button>
                         </div>
                     </div>
@@ -103,33 +103,38 @@ const Header = () => {
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        className="border-t bg-background lg:hidden"
+                        className="fixed inset-0 z-50 bg-background/95 backdrop-blur flex flex-col items-center justify-center space-y-8 lg:hidden"
                     >
-                        <div className="container mx-auto px-4 py-4">
-                            <nav className="flex flex-col space-y-4">
-                                {navigationLinks.map((link) => (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        className="text-sm font-medium transition-colors hover:text-wsa-blue"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
-                                <div className="pt-4">
-                                    <Button asChild className="w-full">
-                                        <Link href="/book" onClick={() => setMobileMenuOpen(false)}>
-                                            Book Session
-                                        </Link>
-                                    </Button>
-                                </div>
-                            </nav>
-                        </div>
+                        <nav className="flex flex-col space-y-6 w-full max-w-xs mx-auto text-center">
+                            {navigationLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className="text-lg font-semibold py-3 rounded-lg transition-colors hover:text-wsa-blue focus:bg-muted"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                            <Button asChild className="w-full py-4 text-lg rounded-xl mt-4">
+                                <Link href="/book" onClick={() => setMobileMenuOpen(false)}>
+                                    Book Session
+                                </Link>
+                            </Button>
+                        </nav>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setMobileMenuOpen(false)}
+                            aria-label="Close menu"
+                            className="absolute top-6 right-6 h-12 w-12"
+                        >
+                            <X size={32} />
+                        </Button>
                     </motion.div>
                 )}
             </AnimatePresence>

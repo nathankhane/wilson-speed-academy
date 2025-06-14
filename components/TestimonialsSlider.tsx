@@ -94,7 +94,7 @@ const TestimonialsSlider = () => {
                 </div>
 
                 <div className="relative">
-                    <div ref={sliderRef} className="keen-slider">
+                    <div ref={sliderRef} className="keen-slider flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-stretch py-8 px-2">
                         {testimonials.map((testimonial) => (
                             <div key={testimonial.id} className="keen-slider__slide">
                                 <div className="bg-card rounded-lg border p-6 h-full shadow-sm">
@@ -152,6 +152,11 @@ const TestimonialsSlider = () => {
                             </Button>
                         </>
                     )}
+
+                    <div className="absolute left-1/2 bottom-2 -translate-x-1/2 flex items-center gap-2 md:hidden">
+                        <span className="text-xs text-muted-foreground">Swipe</span>
+                        <ChevronRight className="w-4 h-4 animate-bounce-x text-wsa-blue" />
+                    </div>
                 </div>
 
                 {loaded && instanceRef.current && (
