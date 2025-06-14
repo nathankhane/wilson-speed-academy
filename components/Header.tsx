@@ -33,17 +33,17 @@ const Header = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-background shadow">
-            <div className="max-w-6xl mx-auto grid grid-cols-[auto_1fr_auto] items-center p-2 md:p-4">
+            <div className="max-w-6xl mx-auto flex items-center justify-between p-2 md:p-4">
                 {/* Logo */}
                 <Link href="/" className="flex items-center group">
                     <Image
                         src={logoSrc}
                         alt="Wilson Speed Academy"
-                        width={90}
-                        height={90}
-                        className="h-10 md:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
+                        width={96}
+                        height={96}
+                        className="h-12 md:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
                         priority
-                        sizes="(max-width: 640px) 48px, 80px"
+                        sizes="(max-width: 640px) 56px, 80px"
                     />
                 </Link>
 
@@ -66,7 +66,7 @@ const Header = () => {
 
                 {/* Hamburger (mobile) */}
                 <button
-                    className="md:hidden text-2xl p-2 ml-auto col-span-3 justify-self-end"
+                    className="md:hidden text-3xl p-3 flex items-center justify-center"
                     onClick={() => setIsOpen(true)}
                     aria-label="Open menu"
                 >
