@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -14,6 +14,7 @@ const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
     const [portalContainer, setPortalContainer] = useState<Element | null>(null)
+    const portalRef = useRef<Element | null>(null)
     const { resolvedTheme } = useTheme()
 
     const navigationLinks = [
@@ -26,6 +27,7 @@ const Header = () => {
     useEffect(() => {
         setMounted(true)
         setPortalContainer(document.body)
+        portalRef.current = document.body
     }, [])
 
     // Determine which logo to use based on theme, with proper fallback
@@ -105,27 +107,26 @@ const Header = () => {
 
             {/* Mobile Navigation */}
             <AnimatePresence>
-                {mobileMenuOpen && mounted && portalContainer && createPortal(
+                {mobileMenuOpen && mounted && portalRef.current && createPortal(
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        className="fixed inset-0 z-[9999] bg-white dark:bg-background flex flex-col items-center justify-center space-y-8 lg:hidden"
-                        style={{ background: 'rgba(255,255,255,0.98)' }}
+                        className="fixed inset-0 z-[9999] bg-white/80 dark:bg-background/80 backdrop-blur-md flex flex-col items-center justify-center space-y-8 lg:hidden"
                     >
                         <nav className="flex flex-col space-y-6 w-full max-w-xs mx-auto text-center">
                             {navigationLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="text-lg font-semibold py-3 rounded-lg transition-colors hover:text-wsa-blue focus:bg-muted"
+                                    className="text-2xl font-semibold py-4 rounded-lg transition-colors hover:text-wsa-blue focus:bg-muted"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     {link.label}
                                 </Link>
                             ))}
-                            <Button asChild className="w-full py-4 text-lg rounded-xl mt-4">
+                            <Button asChild className="w-full py-4 text-xl rounded-xl mt-4">
                                 <Link href="/book" onClick={() => setMobileMenuOpen(false)}>
                                     Book Session
                                 </Link>
@@ -136,12 +137,12 @@ const Header = () => {
                             size="icon"
                             onClick={() => setMobileMenuOpen(false)}
                             aria-label="Close menu"
-                            className="absolute top-6 right-6 h-12 w-12"
+                            className="absolute top-6 right-6 h-14 w-14 bg-wsa-blue/20 text-foreground"
                         >
-                            <X size={32} />
+                            <X size={36} />
                         </Button>
                     </motion.div>,
-                    portalContainer
+                    portalRef.current
                 )}
             </AnimatePresence>
         </header>
