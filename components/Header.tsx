@@ -33,7 +33,7 @@ const Header = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-background shadow">
-            <div className="max-w-6xl mx-auto flex items-center justify-between p-4">
+            <div className="max-w-6xl mx-auto grid grid-cols-[auto_1fr_auto] items-center p-4">
                 {/* Logo */}
                 <Link href="/" className="flex items-center group">
                     <Image
@@ -48,14 +48,14 @@ const Header = () => {
                 </Link>
 
                 {/* Center nav links (desktop) */}
-                <nav className="hidden md:flex gap-8 items-center justify-center flex-1">
+                <nav className="hidden md:flex gap-8 items-center justify-center mx-auto">
                     <HeaderLink href="/">Home</HeaderLink>
                     <HeaderLink href="/programs">Programs</HeaderLink>
                     <HeaderLink href="/about">About</HeaderLink>
                 </nav>
 
-                {/* Book Session button (desktop) */}
-                <div className="hidden md:flex items-center gap-4">
+                {/* Right: Theme toggle + Book Session button (desktop) */}
+                <div className="hidden md:flex items-center gap-4 justify-end">
                     <ThemeToggle />
                     <Link href="/book">
                         <button className="bg-wsa-blue text-white px-6 py-2 rounded-lg font-semibold shadow transition-all duration-200 hover:bg-wsa-blue/90 active:scale-95 focus:outline-none focus:ring-2 focus:ring-wsa-blue/50">
@@ -66,7 +66,7 @@ const Header = () => {
 
                 {/* Hamburger (mobile) */}
                 <button
-                    className="md:hidden text-2xl p-2 ml-auto"
+                    className="md:hidden text-2xl p-2 ml-auto col-span-3 justify-self-end"
                     onClick={() => setIsOpen(true)}
                     aria-label="Open menu"
                 >
