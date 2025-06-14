@@ -24,7 +24,7 @@ export default function AboutAnimatedSections() {
         <>
             {/* Hero Section */}
             <motion.section
-                className="pt-16 pb-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5"
+                className="pt-28 md:pt-32 pb-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -36,7 +36,7 @@ export default function AboutAnimatedSections() {
                             alt="Wilson Speed Academy"
                             width={48}
                             height={48}
-                            className="mx-auto mb-2 h-12 w-12"
+                            className="mx-auto mb-6 h-12 w-12"
                         />
                     </div>
 

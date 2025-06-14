@@ -442,3 +442,25 @@ NEXT_PUBLIC_SITE_NAME="Wilson Speed Academy"
 **Maintainer**: Development Team
 
 > This README serves as the complete reference for Wilson Speed Academy development. Keep it updated with all architectural decisions and improvements for future efficiency.
+
+## 🛠️ 2024 UI/UX & Mobile Hotfixes (Session Summary)
+
+- **Mobile Menu:**
+  - Full viewport, z-[60], scroll-locked, closes on Esc/link/close, smooth slide-down animation.
+  - Drawer is robust, premium, and bug-free on all devices.
+
+- **Header:**
+  - Three-column grid for perfect centering: logo (left), nav links (center), theme toggle + Book Session button (right).
+  - Logo switches: `WSA logo2.png` (light), `WSA_logo_white.png` (dark).
+  - Book Session is a styled button on desktop and mobile.
+  - ThemeToggle (dark/light mode) restored for both desktop and mobile.
+  - Premium nav link hover/click animations for a modern feel.
+
+- **Home Page:**
+  - "What Athletes Say" (Testimonials) section removed on all screen sizes for a cleaner look.
+
+- **General:**
+  - All changes are mobile-first, accessible, and tested for no regressions on desktop.
+  - All code is committed and pushed to git after each major fix.
+
+---

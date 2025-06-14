@@ -72,7 +72,7 @@ export default function ProgramsPage() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="pt-16 pb-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5">
+            <section className="pt-28 md:pt-32 pb-16 bg-gradient-to-r from-wsa-blue/10 to-wsa-blue/5">
                 <div className="container mx-auto max-w-screen-xl px-4">
                     <div className="text-center mb-12">
                         <Image
@@ -80,7 +80,7 @@ export default function ProgramsPage() {
                             alt="Wilson Speed Academy"
                             width={60}
                             height={60}
-                            className="mx-auto mb-6 h-15 w-15"
+                            className="mx-auto mb-8 h-15 w-15"
                         />
                         <h1 className="text-4xl md:text-6xl font-headline font-bold mb-6">
                             Training Programs

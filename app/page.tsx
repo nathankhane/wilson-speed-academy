@@ -1,6 +1,5 @@
 import Hero from '@/components/Hero'
 import StatBar from '@/components/StatBar'
-import TestimonialsSlider from '@/components/TestimonialsSlider'
 
 export default function HomePage() {
     return (
@@ -58,10 +57,6 @@ export default function HomePage() {
             </section>
 
             <StatBar />
-            {/* Testimonials Section - only show on md+ screens */}
-            <div className="hidden md:block">
-                <TestimonialsSlider />
-            </div>
         </div>
     )
 } 
