@@ -107,7 +107,7 @@ const Header = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        className="fixed inset-0 z-50 bg-background/95 backdrop-blur flex flex-col items-center justify-center space-y-8 lg:hidden"
+                        className="fixed inset-0 z-50 bg-white dark:bg-background shadow-2xl flex flex-col items-center justify-center space-y-8 lg:hidden"
                     >
                         <nav className="flex flex-col space-y-6 w-full max-w-xs mx-auto text-center">
                             {navigationLinks.map((link) => (

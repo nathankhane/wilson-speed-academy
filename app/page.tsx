@@ -58,7 +58,10 @@ export default function HomePage() {
             </section>
 
             <StatBar />
-            <TestimonialsSlider />
+            {/* Testimonials Section - only show on md+ screens */}
+            <div className="hidden md:block">
+                <TestimonialsSlider />
+            </div>
         </div>
     )
 } 

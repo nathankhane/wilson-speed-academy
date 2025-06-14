@@ -23,9 +23,9 @@ const Footer = () => {
     return (
         <footer className="border-t bg-background pb-28 sm:pb-8">
             <div className="container mx-auto max-w-screen-2xl px-4 py-8">
-                <div className="flex flex-col gap-10 md:grid md:grid-cols-3 md:gap-8 items-start">
+                <div className="flex flex-col gap-10 md:grid md:grid-cols-3 md:gap-8 items-center md:items-start justify-center">
                     {/* Logo and Description */}
-                    <div className="space-y-4 text-center md:text-left flex flex-col items-center md:items-start">
+                    <div className="space-y-4 text-center md:text-left flex flex-col items-center md:items-start justify-center">
                         <h3 className="font-headline text-lg font-bold text-wsa-blue">
                             Wilson Speed Academy
                         </h3>
@@ -36,9 +36,9 @@ const Footer = () => {
                     </div>
 
                     {/* Quick Links */}
-                    <div className="space-y-4 flex flex-col items-center">
+                    <div className="space-y-4 flex flex-col items-center justify-center">
                         <h4 className="font-semibold text-center">Quick Links</h4>
-                        <nav className="flex flex-col space-y-2 items-center text-center">
+                        <nav className="flex flex-col space-y-2 items-center text-center justify-center">
                             <Link href="/programs" className="text-base text-muted-foreground hover:text-wsa-blue transition-colors py-2 px-4 rounded-lg focus:bg-muted">Programs</Link>
                             <Link href="/about" className="text-base text-muted-foreground hover:text-wsa-blue transition-colors py-2 px-4 rounded-lg focus:bg-muted">About Tyriq</Link>
                             <Link href="/book" className="text-base text-muted-foreground hover:text-wsa-blue transition-colors py-2 px-4 rounded-lg focus:bg-muted">Book Session</Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="space-y-4 text-center md:text-right flex flex-col items-center md:items-end">
+                    <div className="space-y-4 text-center md:text-right flex flex-col items-center md:items-end justify-center md:justify-end">
                         <h4 className="font-semibold">Contact</h4>
                         <div className="space-y-2">
                             <div className="flex items-center justify-center md:justify-end space-x-3 text-base text-muted-foreground">

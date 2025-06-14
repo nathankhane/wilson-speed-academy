@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -18,6 +18,14 @@ export const metadata: Metadata = {
 }
 
 export default function ProgramsPage() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const programs = [
         {
             id: 1,
@@ -70,6 +78,17 @@ export default function ProgramsPage() {
         }
     ]
 
+    let displayPrograms = programs;
+    if (isMobile) {
+        const summer = programs.find(p => p.title === 'Summer Training Program');
+        const rest = programs.filter(p => p.title !== 'Summer Training Program');
+        displayPrograms = summer ? [summer, ...rest] : programs;
+    }
+
+    function isProgram(p: any): p is typeof programs[number] {
+        return p !== undefined;
+    }
+
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
@@ -97,7 +116,7 @@ export default function ProgramsPage() {
             <section className="py-16 pb-32">
                 <div className="container mx-auto max-w-screen-xl px-4">
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {programs.map((program, i) => (
+                        {displayPrograms.filter(isProgram).map((program, i) => (
                             <ProgramCard key={program.id} program={program} index={i} />
                         ))}
                     </div>
