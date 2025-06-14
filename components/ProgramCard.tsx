@@ -36,7 +36,7 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
             viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
         >
-            <Card className={`relative shadow-xl border-2 border-transparent hover:border-wsa-blue transition-all duration-300 rounded-2xl bg-white/90 ${program.popular ? 'ring-2 ring-wsa-blue' : ''} w-full max-w-md mx-auto my-4`}>
+            <Card className={`relative shadow-xl border-2 border-transparent hover:border-wsa-blue transition-all duration-300 rounded-2xl bg-white/90 dark:bg-card dark:text-card-foreground ${program.popular ? 'ring-2 ring-wsa-blue' : ''} w-full max-w-md mx-auto my-4`}>
                 {program.popular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                         <span className="bg-wsa-blue text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
@@ -49,20 +49,20 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.2 + index * 0.1, type: 'spring', stiffness: 200 }}
-                        className="mx-auto mb-4 p-3 bg-wsa-blue/10 rounded-full w-fit"
+                        className="mx-auto mb-4 p-3 bg-wsa-blue/10 dark:bg-wsa-blue/20 rounded-full w-fit"
                     >
-                        <div className="text-wsa-blue">
+                        <div className="text-wsa-blue dark:text-wsa-blue">
                             {program.icon}
                         </div>
                     </motion.div>
-                    <CardTitle className="text-2xl mb-2">{program.title}</CardTitle>
+                    <CardTitle className="text-2xl mb-2 dark:text-card-foreground">{program.title}</CardTitle>
                     <div className="flex flex-col items-center gap-1 mb-2">
-                        <span className="text-3xl font-bold text-wsa-blue">{program.price}</span>
-                        <span className="text-sm text-muted-foreground">{program.priceSubtext}</span>
-                        <span className="text-lg font-semibold text-wsa-blue mt-2">{program.price2}</span>
-                        <span className="text-sm text-muted-foreground">{program.price2Subtext}</span>
+                        <span className="text-3xl font-bold text-wsa-blue dark:text-wsa-blue">{program.price}</span>
+                        <span className="text-sm text-muted-foreground dark:text-muted-foreground">{program.priceSubtext}</span>
+                        <span className="text-lg font-semibold text-wsa-blue dark:text-wsa-blue mt-2">{program.price2}</span>
+                        <span className="text-sm text-muted-foreground dark:text-muted-foreground">{program.price2Subtext}</span>
                     </div>
-                    <CardDescription className="text-base mb-2">
+                    <CardDescription className="text-base mb-2 dark:text-muted-foreground">
                         {program.description}
                     </CardDescription>
                 </CardHeader>
@@ -77,7 +77,7 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
                     </ul>
                 </CardContent>
                 <CardFooter>
-                    <Button asChild className="w-full btn-hover-lift text-base py-3 rounded-xl mt-2">
+                    <Button asChild className="w-full btn-hover-lift text-base py-3 rounded-xl mt-2 bg-wsa-blue text-white dark:bg-wsa-blue dark:text-white">
                         <Link href="/book">Get Started</Link>
                     </Button>
                 </CardFooter>
