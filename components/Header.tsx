@@ -33,7 +33,7 @@ const Header = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-background shadow">
-            <div className="max-w-6xl mx-auto grid grid-cols-[auto_1fr_auto] items-center p-4">
+            <div className="max-w-6xl mx-auto grid grid-cols-[auto_1fr_auto] items-center p-2 md:p-4">
                 {/* Logo */}
                 <Link href="/" className="flex items-center group">
                     <Image
@@ -41,7 +41,7 @@ const Header = () => {
                         alt="Wilson Speed Academy"
                         width={90}
                         height={90}
-                        className="h-12 sm:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
+                        className="h-10 md:h-20 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
                         priority
                         sizes="(max-width: 640px) 48px, 80px"
                     />
