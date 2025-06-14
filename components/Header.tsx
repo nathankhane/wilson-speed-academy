@@ -55,7 +55,8 @@ const Header = () => {
                 </nav>
 
                 {/* Book Session button (desktop) */}
-                <div className="hidden md:flex items-center">
+                <div className="hidden md:flex items-center gap-4">
+                    <ThemeToggle />
                     <Link href="/book">
                         <button className="bg-wsa-blue text-white px-6 py-2 rounded-lg font-semibold shadow transition-all duration-200 hover:bg-wsa-blue/90 active:scale-95 focus:outline-none focus:ring-2 focus:ring-wsa-blue/50">
                             Book Session
@@ -80,15 +81,17 @@ const Header = () => {
                     aria-modal="true"
                     className="fixed inset-0 z-[60] bg-white dark:bg-background flex flex-col overflow-y-auto md:hidden animate-slide-in"
                 >
-                    <button
-                        onClick={() => setIsOpen(false)}
-                        aria-label="Close menu"
-                        className="absolute top-4 right-4 text-2xl p-2"
-                    >
-                        ✕
-                    </button>
-
-                    <nav className="mt-20 flex flex-col items-center gap-8 text-xl">
+                    <div className="flex justify-end p-4">
+                        <ThemeToggle />
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            aria-label="Close menu"
+                            className="text-2xl p-2 ml-2"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                    <nav className="mt-8 flex flex-col items-center gap-8 text-xl">
                         <MobileNavLink href="/" onClick={() => setIsOpen(false)}>Home</MobileNavLink>
                         <MobileNavLink href="/programs" onClick={() => setIsOpen(false)}>Programs</MobileNavLink>
                         <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
