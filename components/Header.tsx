@@ -8,13 +8,10 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { useTheme } from 'next-themes'
-import { createPortal } from 'react-dom'
 
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [mounted, setMounted] = useState(false)
-    const [portalContainer, setPortalContainer] = useState<Element | null>(null)
-    const portalRef = useRef<Element | null>(null)
     const { resolvedTheme } = useTheme()
 
     const navigationLinks = [
@@ -26,8 +23,6 @@ const Header = () => {
     // Ensure component is mounted before accessing theme
     useEffect(() => {
         setMounted(true)
-        setPortalContainer(document.body)
-        portalRef.current = document.body
     }, [])
 
     // Determine which logo to use based on theme, with proper fallback
@@ -107,7 +102,7 @@ const Header = () => {
 
             {/* Mobile Navigation */}
             <AnimatePresence>
-                {mobileMenuOpen && mounted && portalRef.current && createPortal(
+                {mobileMenuOpen && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -141,8 +136,7 @@ const Header = () => {
                         >
                             <X size={36} />
                         </Button>
-                    </motion.div>,
-                    portalRef.current
+                    </motion.div>
                 )}
             </AnimatePresence>
         </header>
