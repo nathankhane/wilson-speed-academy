@@ -22,10 +22,10 @@ export default function ProgramsPage() {
             id: 1,
             title: "Pay Per Session",
             icon: <CalendarCheck className="h-8 w-8" />,
-            price: "$30",
+            price: "$40",
             priceSubtext: "1 athlete",
-            price2: "$20",
-            price2Subtext: "2 athletes (per athlete)",
+            price2: "$30",
+            price2Subtext: "2 athletes (per athlete) · $60 total",
             description: "Flexible, pay-as-you-go training. Perfect for drop-ins or those wanting to try a session.",
             features: [
                 "Flexible scheduling",
@@ -38,14 +38,13 @@ export default function ProgramsPage() {
             id: 2,
             title: "Summer Training Program",
             icon: <Sun className="h-8 w-8" />,
-            price: "$200",
+            price: "$300",
             priceSubtext: "1 athlete (10 sessions)",
-            price2: "$325",
+            price2: "$450",
             price2Subtext: "2 athletes (10 sessions)",
-            description: "Best value! 10-session summer program. Includes free consultation. Group motivation and accountability.",
+            description: "Best value! 10-session summer program. Group motivation and accountability.",
             features: [
                 "10 training sessions",
-                "Free consultation included",
                 "Best value for progress",
                 "Group motivation (2 athletes option)"
             ],
@@ -55,14 +54,13 @@ export default function ProgramsPage() {
             id: 3,
             title: "Weekly Training",
             icon: <Users className="h-8 w-8" />,
-            price: "$75",
+            price: "$100",
             priceSubtext: "1 athlete (3 sessions)",
-            price2: "$125",
+            price2: "$150",
             price2Subtext: "2 athletes (3 sessions)",
-            description: "Consistent weekly progress. Includes free consultation. Solo or small group.",
+            description: "Consistent weekly progress. Solo or small group.",
             features: [
                 "3 training sessions per week",
-                "Free consultation included",
                 "Solo or 2-athlete option"
             ],
             popular: false
@@ -104,10 +102,10 @@ export default function ProgramsPage() {
                 <div className="container mx-auto max-w-screen-xl px-4 text-center">
                     <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
                     <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                        Book a free consultation to discuss which program is right for you and your goals.
+                        Book a session to discuss which program is right for you and your goals.
                     </p>
                     <Button asChild size="lg">
-                        <Link href="/book">Book Free Consultation</Link>
+                        <Link href="/book">Book a Session</Link>
                     </Button>
                 </div>
             </section>
